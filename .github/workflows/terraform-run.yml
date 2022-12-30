@@ -1,0 +1,26 @@
+name: Terraform
+on:
+  push:
+    branches:
+      - main
+    pull_request:
+
+jobs:
+  terraform:
+    name: 'Terraform'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.3.0
+
+      - name: Terraform format syntax
+        id: id
+        run: terraform fmt -write=true -recursive
+
+      - name: Terraform init
+        run: terraform init
