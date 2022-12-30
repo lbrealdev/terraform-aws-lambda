@@ -10,7 +10,7 @@ jobs:
     name: 'Terraform'
     runs-on: ubuntu-latest
     steps:
-      - name: Run checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Setup terraform
@@ -22,5 +22,4 @@ jobs:
         id: id
         run: terraform fmt -write=true -recursive
 
-      - name: Terraform init
         run: terraform init
