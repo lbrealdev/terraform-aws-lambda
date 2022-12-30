@@ -22,4 +22,4 @@ jobs:
         id: id
         run: terraform fmt -write=true -recursive
 
-        run: terraform init
+      - run: terraform init
