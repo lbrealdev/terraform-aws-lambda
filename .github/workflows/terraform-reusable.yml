@@ -30,6 +30,6 @@ jobs:
       - name: Terraform init
         run: |
           cd ..
-          ls -lthr
+          ls -lthr *
 
 
