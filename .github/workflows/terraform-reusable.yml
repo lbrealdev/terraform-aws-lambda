@@ -31,10 +31,6 @@ jobs:
         uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: 1.3.0
-
-      #- name: Terraform format syntax
-      #  id: fmt
-      #  run: terraform fmt -write=true -recursive
       
       - name: Test command
         run: |
@@ -45,4 +41,13 @@ jobs:
         id: init
         run: terraform init
         working-directory: module
+
+      - name: Terraform format syntax
+        id: fmt
+        run: terraform fmt -write=true -recursive
+        working-directory: module
+
+      - name: Terraform plan
+        id: plan
+        run: terraform plan -out plan
 
