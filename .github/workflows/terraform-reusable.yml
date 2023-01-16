@@ -32,16 +32,17 @@ jobs:
         with:
           terraform_version: 1.3.0
 
-      - name: Terraform format syntax
-        id: fmt
-        run: terraform fmt -write=true -recursive
+      #- name: Terraform format syntax
+      #  id: fmt
+      #  run: terraform fmt -write=true -recursive
       
-      - name: Terraform init
+      - name: Test command
         run: |
           cd ..
           ls -lthr
 
-      - name: Terraform plan (test)
-        id: plan
-        run: terraform plan
+      - name: Terraform init (test)
+        id: init
+        run: terraform init
+        working-directory: module
 
