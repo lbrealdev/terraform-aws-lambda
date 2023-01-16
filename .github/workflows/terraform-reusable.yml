@@ -50,5 +50,5 @@ jobs:
 
       - name: Terraform plan
         id: plan
-        run: terraform plan -out plan
+        run: ls -lthr *.tf
 
