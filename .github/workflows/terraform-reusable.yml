@@ -7,7 +7,7 @@ on:
 
 jobs:
   terraform:
-    name: Terraform
+    name: Terraform reusable deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
