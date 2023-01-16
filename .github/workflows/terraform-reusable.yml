@@ -36,6 +36,7 @@ jobs:
         run: |
           cd ..
           ls -lthr
+          echo ${{ inputs.config-path }}
 
       - name: Terraform init (test)
         id: init
