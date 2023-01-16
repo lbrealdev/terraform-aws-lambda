@@ -11,7 +11,8 @@ module "lambda" {
 
   create        = true
   function_name = "python-lambda-poc"
-  filename      = "${path.module}/modules/lambda/zip/python-lambda-poc.zip"
   handler       = "main.lambda_handler"
   runtime       = "python3.8"
+
+  filename      = "${path.module}/modules/lambda/zip/lambda.zip"
 }

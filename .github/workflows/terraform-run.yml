@@ -1,15 +1,17 @@
 name: Terraform
 on:
-  push:
-    branches:
-      - main
-    pull_request:
+  workflow_call:
+    inputs:
+      config-path:
+        required: true
+        type: string
 
 jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
       - uses: actions/checkout@v3
 
       - name: Setup terraform
