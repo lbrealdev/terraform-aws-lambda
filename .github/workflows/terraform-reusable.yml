@@ -15,7 +15,8 @@ jobs:
 
       - name: Checkout repository (called)
         uses: actions/checkout@v3
-          repository: 'lbrealdev/terraform-aws-lambda'
+        with:
+          repository: ${{ GITHUB_REPOSITORY }}
 
       - name: Setup terraform
         uses: hashicorp/setup-terraform@v2
