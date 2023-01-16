@@ -51,4 +51,5 @@ jobs:
       - name: Terraform plan
         id: plan
         run: ls -lthr *.tf
+        working-directoty: module
 
