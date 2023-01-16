@@ -21,5 +21,6 @@ jobs:
       - name: Terraform format syntax
         id: fmt
         run: terraform fmt -write=true -recursive
-
-      - run: terraform init
+      
+      - name: Terraform init
+        run: terraform init
