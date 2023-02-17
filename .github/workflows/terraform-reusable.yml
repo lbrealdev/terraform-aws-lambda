@@ -2,7 +2,7 @@ name: Terraform module for AWS lambda function
 on:
   workflow_call:
     inputs:
-      config-path:
+      argument:
         required: true
         type: string
     secrets:
@@ -16,8 +16,8 @@ defaults:
     working-directory: terraform-module
 
 env:
-  TERRAFORM_MODULE_DIR: ${{ defaults.run.working-directory }}
-  TERRAFORM_MODULE_WORKFLOW: lbrealdev/terraform-aws-lambda
+  TERRAFORM_MODULE_DIRECTORY: terraform-module
+  TERRAFORM_MODULE_WORKFLOWS: lbrealdev/terraform-aws-lambda
   TERRAFORM_VERSION: 1.3.0
 
 jobs:
@@ -35,8 +35,8 @@ jobs:
       - name: Checkout repository (called)
         uses: actions/checkout@v3
         with:
-          repository: ${{ env.TERRAFORM_MODULE_WORKFLOW }}
-          path: ${{ env.TERRAFORM_MODULE_DIR }}
+          repository: ${{ env.TERRAFORM_MODULE_WORKFLOWS }}
+          path: ${{ env.TERRAFORM_MODULE_DIRECTORY }}
 
       - name: Setup terraform
         uses: hashicorp/setup-terraform@v2
@@ -48,6 +48,7 @@ jobs:
         run: terraform init
 
       - name: Terraform plan
+        if: ${{ inputs.argument == 'run' }}
         id: plan
         run: terraform plan -out plan
 
