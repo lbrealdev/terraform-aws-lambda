@@ -43,13 +43,9 @@ jobs:
         with:
           terraform_version: ${{ env.TERRAFORM_VERSION }}
 
-      - name: Terraform init (test)
+      - name: Terraform init
         id: init
         run: terraform init
-
-      - name: Terraform format syntax
-        id: fmt
-        run: terraform fmt -write=true -recursive
 
       - name: Terraform plan
         id: plan
