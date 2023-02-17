@@ -14,6 +14,7 @@ on:
 
 env:
   TERRAFORM_MODULE_DIR: terraform-module
+  CALLED_MODULE_REPOSITOY: lbrealdev/terraform-aws-lambda
 
 jobs:
   terraform:
@@ -33,7 +34,7 @@ jobs:
       - name: Checkout repository (called)
         uses: actions/checkout@v3
         with:
-          repository: 'lbrealdev/terraform-aws-lambda'
+          repository: ${{ env.CALLED_MODULE_REPOSITORY }}
           path: ${{ env.TERRAFORM_MODULE_DIR }}
 
       - name: Setup terraform
