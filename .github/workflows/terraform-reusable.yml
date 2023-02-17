@@ -16,7 +16,6 @@ env:
   TERRAFORM_MODULE_WORKFLOW: lbrealdev/terraform-aws-lambda
   TERRAFORM_VERSION: 1.3.0
   
-
 jobs:
   terraform:
     name: Terraform lambda function
