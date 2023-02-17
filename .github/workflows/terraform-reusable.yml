@@ -14,7 +14,7 @@ on:
 
 env:
   TERRAFORM_MODULE_DIR: terraform-module
-  CALLED_MODULE_REPOSITOY: lbrealdev/terraform-aws-lambda
+  CALLED_MODULE_REPOSITORY: lbrealdev/terraform-aws-lambda
 
 jobs:
   terraform:
