@@ -16,7 +16,7 @@ defaults:
     working-directory: terraform-module
 
 env:
-  TERRAFORM_MODULE_DIR: terraform-module
+  TERRAFORM_MODULE_DIR: ${{ defaults.run.working-directory }}
   TERRAFORM_MODULE_WORKFLOW: lbrealdev/terraform-aws-lambda
   TERRAFORM_VERSION: 1.3.0
 
