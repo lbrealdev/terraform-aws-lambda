@@ -14,5 +14,5 @@ module "lambda" {
   handler       = "main.lambda_handler"
   runtime       = "python3.8"
 
-  filename      = "${path.module}/modules/lambda/zip/lambda.zip"
+  filename = "${path.module}/modules/lambda/zip/lambda.zip"
 }

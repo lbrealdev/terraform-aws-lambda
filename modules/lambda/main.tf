@@ -38,8 +38,8 @@ resource "aws_lambda_function" "main" {
   filename      = var.filename
   function_name = var.function_name
   role          = aws_iam_role.lambda.arn
-  memory_size = 128
-  publish = false
+  memory_size   = 128
+  publish       = false
   handler       = var.handler
   runtime       = var.runtime
 
