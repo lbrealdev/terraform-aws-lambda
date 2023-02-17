@@ -1,6 +1,5 @@
 # reusable workflow [terraform]
 name: Terraform module for AWS lambda function
-
 on:
   workflow_call:
     inputs:
@@ -13,6 +12,9 @@ on:
       aws_secret_access_key:
         required: true
 
+env:
+  TERRAFORM_MODULE_DIR: terraform-module
+
 jobs:
   terraform:
     name: Terraform lambda function
@@ -22,8 +24,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     defaults:
       run:
-        shell: bash
-        working-directory: terraform-module
+        working-directory: ${{ env.TERRAFORM_MODULE_DIR }}
 
     steps:
       - name: Checkout repository (caller)
@@ -33,7 +34,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: 'lbrealdev/terraform-aws-lambda'
-          path: 'terraform-module'
+          path: ${{ env.TERRAFORM_MODULE_DIR }}
 
       - name: Setup terraform
         uses: hashicorp/setup-terraform@v2
