@@ -55,4 +55,4 @@ jobs:
           ls -lthr $GITHUB_WORKSPACE
           pwd
           echo ${{ github.actor }}
-          echo ${{ toJSON(github.event) }}
+          echo ${{ github.event }}
